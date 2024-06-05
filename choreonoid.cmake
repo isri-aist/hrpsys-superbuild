@@ -41,7 +41,7 @@ endif()
 
 AddProject(choreonoid
   GITHUB choreonoid/choreonoid
-  GIT_TAG origin/master
+  GIT_TAG release-2.0 # origin/master caused a boost error (2024/06/05)
   CMAKE_ARGS -DUSE_BUNDLED_PYBIND11=OFF ${choreonoid_cmake_args}
   DEPENDS ${choreonoid_DEPENDS}
   APT_PACKAGES choreonoid libcnoid-dev
