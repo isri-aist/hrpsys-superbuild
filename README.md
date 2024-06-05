@@ -15,6 +15,12 @@ It builds:
 
 First, install ROS. See [here](https://wiki.ros.org/noetic/Installation/Ubuntu) for details.
 
+Install ccache and increase the cache size for ccache.
+```bash
+sudo apt install ccache
+ccache -M 10G
+```
+
 Clone all sources, build, and install.
 ```bash
 $ mkdir ~/workspace
@@ -22,6 +28,7 @@ $ cd ~/workspace
 $ git clone https://github.com/mc-rtc/mc-rtc-superbuild
 $ git clone git@github.com:isri-aist/hrpsys-superbuild mc-rtc-superbuild/extensions/hrpsys-superbuild
 $ cd mc-rtc-superbuild
+$ ./utils/bootstrap-linux.sh
 $ mkdir -p build && cd build
 $ cmake ../ -DSOURCE_DESTINATION=$HOME/workspace/src/ -DBUILD_DESTINATION=$HOME/workspace/build -DCMAKE_INSTALL_PREFIX=$HOME/workspace/install -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_C_COMPILER_LAUNCHER="ccache" -DCMAKE_CXX_COMPILER_LAUNCHER="ccache"
 $ cmake --build .
