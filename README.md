@@ -17,8 +17,8 @@ First, install ROS. See [here](https://wiki.ros.org/noetic/Installation/Ubuntu) 
 
 Install ccache and increase the cache size for ccache.
 ```bash
-sudo apt install ccache
-ccache -M 10G
+$ sudo apt install ccache
+$ ccache -M 10G
 ```
 
 Clone all sources, build, and install.
