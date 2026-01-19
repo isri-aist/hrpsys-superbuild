@@ -4,11 +4,15 @@ mc-rtc-superbuild extension for hrpsys and choreonoid
 ## Summary
 This repository is an extension repository for [mc-rtc-superbuild](https://github.com/mc-rtc/mc-rtc-superbuild).
 
+It downloads:
+- [openrtm2](https://openrtm.org/openrtm/en) packages
+
 It builds:
-- [openrtm-aist](https://github.com/isri-aist/openrtm-aist-cpp) and [openrtm-aist-python](https://github.com/gergondet/openrtm-aist-python-deb) from [openrtm-aist.cmake](openrtm-aist.cmake)
-- [openhrp3](https://github.com/fkanehiro/openhrp3) and [hrpsys-base](https://github.com/fkanehiro/hrpsys-base) from [hrpsys-base.cmake](hrpsys-base.cmake)
-- [choreonoid](https://github.com/choreonoid/choreonoid) from [choreonoid.cmake](choreonoid.cmake)
-- [mc_openrtm](https://github.com/jrl-umi3218/mc_openrtm) and [mc_udp](https://github.com/jrl-umi3218/mc_udp) from [mc-openrtm.cmake](mc-openrtm.cmake)
+- [openhrp3](https://github.com/fkanehiro/openhrp3/tree/ubuntu2204%2Brtm2) and [hrpsys-base](https://github.com/fkanehiro/hrpsys-base/tree/ubuntu2204%2Brtm2) from [hrpsys-base.cmake](hrpsys-base.cmake)
+- [choreonoid](https://github.com/ThomasDuvinage/choreonoid/tree/release-2.2) from [choreonoid.cmake](choreonoid.cmake)
+- [mc_openrtm](https://github.com/ThomasDuvinage/mc_openrtm/tree/ubuntu2204%2Brtm2) and [mc_udp](https://github.com/ThomasDuvinage/mc_udp/tree/ubuntu2204%2Brtm2) from [mc-openrtm.cmake](mc-openrtm.cmake)
+
+> Please note that PR have been opened and will be merged soon for `mc_openrtm` and `mc_udp`.
 
 ## Install
 - Tested with Ubuntu 22.04 / ROS Humble
