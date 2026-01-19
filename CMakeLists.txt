@@ -12,7 +12,7 @@ set(hrpsys_APT_DEPENDENCIES
   autoconf
   f2c
   libtool-bin
-  libsdl-dev
+  libsdl1.2-dev
   libglew-dev
   libopencv-dev
   libqhull-dev
@@ -31,13 +31,13 @@ set(hrpsys_APT_DEPENDENCIES
   libqt5x11extras5-dev
   libxfixes-dev
   libomniorb4-dev
-  python-omniorb
+  python3-omniorb
   omniorb-nameserver
   omniidl
-  omniidl-python
+  omniidl-python3
   libqt5svg5-dev
-  python-yaml
-  python-tk
+  python3-yaml
+  python3-tk
   libfmt-dev
   gettext
   libcollada-dom-dev
@@ -48,7 +48,7 @@ set(hrpsys_APT_DEPENDENCIES
 
 AptInstall(${hrpsys_APT_DEPENDENCIES})
 
-include(openrtm-aist.cmake)
+include(openrtm2.cmake)
 include(hrpsys-base.cmake)
 
 if (WITH_CHOREONOID)

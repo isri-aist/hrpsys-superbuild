@@ -17,7 +17,7 @@ set(choreonoid_cmake_args
   -DROBOT_HOSTNAME="$ENV{ROBOT_HOSTNAME}"
   -DBUILD_ASSIMP_PLUGIN=OFF
   -DUSE_PYBIND11=ON
-  -DUSE_PYTHON3=OFF
+  -DUSE_PYTHON3=ON
   -DBUILD_BALANCER_PLUGIN=OFF
   -DENABLE_PYTHON=ON
   -DBUILD_PYTHON_SIM_SCRIPT_PLUGIN=OFF
@@ -33,15 +33,16 @@ set(choreonoid_cmake_args
 if(NOT USE_MC_RTC_APT_MIRROR)
   AddProject(pybind11
     GITHUB pybind/pybind11
-    GIT_TAG v2.9.2
+    GIT_TAG v2.13
     CMAKE_ARGS -DPYBIND11_INSTALL=ON -DPYBIND11_TEST=OFF
   )
   list(APPEND choreonoid_DEPENDS pybind11)
 endif()
 
+# TODO change to choreonoid master branch when https://github.com/choreonoid/robot-access-plugin/issues/2 will be fixed 
 AddProject(choreonoid
-  GITHUB choreonoid/choreonoid
-  GIT_TAG release-2.0 # origin/master caused a boost error (2024/06/05)
+  GITHUB ThomasDuvinage/choreonoid
+  GIT_TAG origin/release-2.2
   CMAKE_ARGS -DUSE_BUNDLED_PYBIND11=OFF ${choreonoid_cmake_args}
   DEPENDS ${choreonoid_DEPENDS}
   APT_PACKAGES choreonoid libcnoid-dev
@@ -52,10 +53,8 @@ if(USE_MC_RTC_APT_MIRROR)
 endif()
 
 AddProjectPlugin(choreonoid-openrtm choreonoid
-  # When the pull request https://github.com/OpenRTM/choreonoid-openrtm/pull/12 is merged, it will be replaced with this repository.
-  # GITHUB OpenRTM/choreonoid-openrtm
-  GITHUB isri-aist/choreonoid-openrtm
-  GIT_TAG origin/master
+  GITHUB fkanehiro/choreonoid-openrtm
+  GIT_TAG origin/ubuntu2204+rtm2
   SUBFOLDER ext
 )
 
@@ -71,8 +70,9 @@ AddProjectPlugin(grxui-plugin choreonoid
   SUBFOLDER ext
 )
 
+# TODO change to main repo when PR is merged https://github.com/choreonoid/robot-access-plugin/pull/3
 AddProjectPlugin(robot-access-plugin choreonoid
-  GITHUB choreonoid/robot-access-plugin
+  GITHUB ThomasDuvinage/robot-access-plugin
   GIT_TAG origin/master
   SUBFOLDER ext
 )

@@ -11,9 +11,7 @@ It builds:
 - [mc_openrtm](https://github.com/jrl-umi3218/mc_openrtm) and [mc_udp](https://github.com/jrl-umi3218/mc_udp) from [mc-openrtm.cmake](mc-openrtm.cmake)
 
 ## Install
-- Tested with Ubuntu 20.04 / ROS Noetic
-
-First, install ROS. See [here](https://wiki.ros.org/noetic/Installation/Ubuntu) for details.
+- Tested with Ubuntu 22.04 / ROS Humble
 
 Install ccache and increase the cache size for ccache.
 ```bash
@@ -36,11 +34,7 @@ $ cmake --build .
 
 Add the following line to `~/.bashrc`.
 ```bash
-export PATH=$HOME/workspace/install/bin:$PATH
-export PKG_CONFIG_PATH=$HOME/workspace/install/lib/pkgconfig:$PKG_CONFIG_PATH
-export LD_LIBRARY_PATH=$HOME/workspace/install/lib:$LD_LIBRARY_PATH
-export PYTHONPATH=$HOME/workspace/install/lib/python3.8/site-packages:$PYTHONPATH
-source $HOME/workspace/src/catkin_ws/devel/setup.bash
+source $HOME/workspace/install/setup_mc_rtc.sh
 ```
 
 ## Example
@@ -54,21 +48,17 @@ Enabled: Posture
 Run a kinematics simulation.
 ```bash
 # Terminal 1
-$ roscore
-# Terminal 2
 $ mc_rtc_ticker
-# Terminal 3
-$ roslaunch mc_rtc_ticker display.launch
+# Terminal 2
+$ ros2 launch mc_rtc_ticker display.launch
 ```
 
 Run a dynamics simulation.
 ```bash
 # Terminal 1
-$ roscore
-# Terminal 2
 $ cd ~/workspace/install/share/hrpsys/samples/JVRC1/
 $ ./clear-omninames.sh # Only needed the first time after booting Ubuntu
 $ choreonoid sim_mc.cnoid --start-simulation
-# Terminal 3
-$ roslaunch mc_rtc_ticker display.launch
+# Terminal 2
+$ ros2 launch mc_rtc_ticker display.launch
 ```
